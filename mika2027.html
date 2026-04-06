@@ -1,0 +1,1513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mika Scholarship 2027 — Let's do this!</title>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --blue: #1a73e8;
+    --blue-light: #e8f0fe;
+    --blue-mid: #4285f4;
+    --teal: #00897b;
+    --teal-light: #e0f2f1;
+    --amber: #f57c00;
+    --amber-light: #fff3e0;
+    --coral: #e53935;
+    --coral-light: #ffebee;
+    --purple: #7b1fa2;
+    --purple-light: #f3e5f5;
+    --green: #2e7d32;
+    --green-light: #e8f5e9;
+    --navy: #0d1b3e;
+    --slate: #2c3e50;
+    --text: #1a1a2e;
+    --text-muted: #5a6278;
+    --border: #e0e4ef;
+    --surface: #f8f9ff;
+    --white: #ffffff;
+    --gold: #fbbf24;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Sora', sans-serif;
+    background: var(--navy);
+    color: var(--text);
+    min-height: 100vh;
+  }
+
+  .hero {
+    background: linear-gradient(135deg, #0d1b3e 0%, #1a2a5e 50%, #0d3b6e 100%);
+    padding: 60px 40px 80px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 320px; height: 320px;
+    border-radius: 50%;
+    background: rgba(66, 133, 244, 0.08);
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -40px; left: 10%;
+    width: 200px; height: 200px;
+    border-radius: 50%;
+    background: rgba(0, 137, 123, 0.07);
+  }
+
+  .hero-tag {
+    display: inline-block;
+    background: rgba(66, 133, 244, 0.2);
+    color: #93c5fd;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 6px 14px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+    border: 1px solid rgba(66, 133, 244, 0.3);
+  }
+
+  .hero h1 {
+    font-size: clamp(28px, 5vw, 48px);
+    font-weight: 700;
+    color: #ffffff;
+    line-height: 1.15;
+    margin-bottom: 16px;
+    max-width: 700px;
+  }
+
+  .hero h1 span {
+    color: #60a5fa;
+  }
+
+  .hero-subtitle {
+    color: rgba(255,255,255,0.65);
+    font-size: 15px;
+    line-height: 1.7;
+    max-width: 560px;
+    margin-bottom: 32px;
+  }
+
+  .hero-stats {
+    display: flex;
+    gap: 32px;
+    flex-wrap: wrap;
+  }
+
+  .hero-stat {
+    text-align: left;
+  }
+
+  .hero-stat .num {
+    font-family: 'Space Mono', monospace;
+    font-size: 28px;
+    font-weight: 700;
+    color: #60a5fa;
+  }
+
+  .hero-stat .label {
+    font-size: 12px;
+    color: rgba(255,255,255,0.5);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 2px;
+  }
+
+  .main {
+    background: var(--surface);
+    padding: 0;
+  }
+
+  .filter-bar {
+    background: #ffffff;
+    border-bottom: 1px solid var(--border);
+    padding: 16px 40px;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  .filter-label {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-right: 8px;
+  }
+
+  .filter-btn {
+    padding: 7px 16px;
+    border-radius: 20px;
+    border: 1.5px solid var(--border);
+    background: transparent;
+    font-family: 'Sora', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .filter-btn:hover {
+    border-color: var(--blue);
+    color: var(--blue);
+  }
+
+  .filter-btn.active {
+    background: var(--blue);
+    border-color: var(--blue);
+    color: white;
+  }
+
+  .content {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 40px 40px 80px;
+  }
+
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 28px;
+    margin-top: 48px;
+  }
+
+  .section-header:first-of-type {
+    margin-top: 0;
+  }
+
+  .section-header h2 {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--slate);
+  }
+
+  .section-line {
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  .scholarship-card {
+    background: #ffffff;
+    border-radius: 16px;
+    border: 1px solid var(--border);
+    margin-bottom: 20px;
+    overflow: hidden;
+    transition: box-shadow 0.2s, transform 0.2s;
+  }
+
+  .scholarship-card:hover {
+    box-shadow: 0 8px 32px rgba(26, 115, 232, 0.1);
+    transform: translateY(-2px);
+  }
+
+  .card-header {
+    padding: 24px 28px 20px;
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    cursor: pointer;
+    user-select: none;
+  }
+
+  .country-flag {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 26px;
+    flex-shrink: 0;
+  }
+
+  .card-meta {
+    flex: 1;
+  }
+
+  .card-tags {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+    margin-bottom: 8px;
+  }
+
+  .tag {
+    font-size: 11px;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 20px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .tag-country { background: #e8f0fe; color: #1a56db; }
+  .tag-fully { background: #e8f5e9; color: #2e7d32; }
+  .tag-partial { background: #fff3e0; color: #e65100; }
+  .tag-deadline { background: #fce4ec; color: #c62828; }
+  .tag-govt { background: #f3e5f5; color: #6a1b9a; }
+  .tag-univ { background: #e0f2f1; color: #00695c; }
+
+  .card-title {
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 4px;
+    line-height: 1.3;
+  }
+
+  .card-university {
+    font-size: 13px;
+    color: var(--text-muted);
+  }
+
+  .card-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 8px;
+    flex-shrink: 0;
+  }
+
+  .deadline-badge {
+    background: var(--coral-light);
+    color: var(--coral);
+    font-size: 12px;
+    font-weight: 600;
+    padding: 5px 12px;
+    border-radius: 8px;
+    white-space: nowrap;
+    font-family: 'Space Mono', monospace;
+  }
+
+  .expand-icon {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s;
+    cursor: pointer;
+  }
+
+  .expand-icon svg {
+    width: 14px;
+    height: 14px;
+    transition: transform 0.3s;
+    stroke: var(--text-muted);
+  }
+
+  .expanded .expand-icon svg {
+    transform: rotate(180deg);
+  }
+
+  .card-body {
+    display: none;
+    border-top: 1px solid var(--border);
+  }
+
+  .card-body.open {
+    display: block;
+  }
+
+  .card-sections {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+  }
+
+  @media (max-width: 700px) {
+    .card-sections { grid-template-columns: 1fr; }
+  }
+
+  .card-section {
+    padding: 24px 28px;
+    border-right: 1px solid var(--border);
+  }
+
+  .card-section:last-child {
+    border-right: none;
+  }
+
+  .card-section-title {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--text-muted);
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .card-section-title::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  .benefit-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 10px;
+    font-size: 14px;
+    color: var(--text);
+    line-height: 1.5;
+  }
+
+  .benefit-icon {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--green-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  .benefit-icon::before {
+    content: '✓';
+    font-size: 11px;
+    color: var(--green);
+    font-weight: 700;
+  }
+
+  .req-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 10px;
+    font-size: 14px;
+    color: var(--text);
+    line-height: 1.5;
+  }
+
+  .req-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--blue);
+    flex-shrink: 0;
+    margin-top: 7px;
+  }
+
+  .card-timeline {
+    padding: 20px 28px;
+    border-top: 1px solid var(--border);
+    background: #fafbff;
+  }
+
+  .timeline-title {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--text-muted);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .timeline-title::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  .timeline-steps {
+    display: flex;
+    align-items: flex-start;
+    gap: 0;
+    overflow-x: auto;
+    padding-bottom: 4px;
+  }
+
+  .timeline-step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 120px;
+    flex: 1;
+    position: relative;
+  }
+
+  .timeline-step:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    top: 14px;
+    left: 50%;
+    width: 100%;
+    height: 2px;
+    background: var(--border);
+    z-index: 0;
+  }
+
+  .timeline-dot {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: 700;
+    position: relative;
+    z-index: 1;
+    margin-bottom: 8px;
+  }
+
+  .dot-1 { background: #e8f0fe; color: #1a56db; }
+  .dot-2 { background: #e0f2f1; color: #00695c; }
+  .dot-3 { background: #fff3e0; color: #e65100; }
+  .dot-4 { background: #e8f5e9; color: #2e7d32; }
+  .dot-passed { background: #f3e5f5; color: #6a1b9a; }
+
+  .timeline-date {
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--text);
+    text-align: center;
+    margin-bottom: 4px;
+  }
+
+  .timeline-event {
+    font-size: 11px;
+    color: var(--text-muted);
+    text-align: center;
+    line-height: 1.4;
+    padding: 0 8px;
+  }
+
+  .note-box {
+    background: var(--amber-light);
+    border: 1px solid #fcd34d;
+    border-radius: 8px;
+    padding: 12px 16px;
+    font-size: 13px;
+    color: #92400e;
+    margin: 16px 28px 0;
+    display: flex;
+    gap: 8px;
+    align-items: flex-start;
+  }
+
+  .note-icon {
+    font-size: 14px;
+    flex-shrink: 0;
+  }
+
+  .overview-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+    margin-bottom: 48px;
+  }
+
+  .overview-card {
+    background: #ffffff;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 20px;
+    text-align: center;
+  }
+
+  .overview-card .icon {
+    font-size: 28px;
+    margin-bottom: 10px;
+  }
+
+  .overview-card .val {
+    font-family: 'Space Mono', monospace;
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--blue);
+    margin-bottom: 4px;
+  }
+
+  .overview-card .desc {
+    font-size: 13px;
+    color: var(--text-muted);
+    line-height: 1.5;
+  }
+
+  .chart-section {
+    background: #ffffff;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 28px;
+    margin-bottom: 40px;
+  }
+
+  .chart-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--slate);
+    margin-bottom: 24px;
+  }
+
+  .deadline-vis {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .dl-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 13px;
+  }
+
+  .dl-label {
+    width: 180px;
+    color: var(--text);
+    font-weight: 500;
+    flex-shrink: 0;
+    font-size: 12px;
+  }
+
+  .dl-month {
+    width: 50px;
+    text-align: right;
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    color: var(--text-muted);
+    flex-shrink: 0;
+  }
+
+  .dl-bar-wrap {
+    flex: 1;
+    height: 28px;
+    background: var(--surface);
+    border-radius: 6px;
+    border: 1px solid var(--border);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .dl-bar {
+    height: 100%;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+    font-size: 11px;
+    font-weight: 600;
+    color: white;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+
+  .country-badges {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-top: 8px;
+    margin-bottom: 32px;
+  }
+
+  .country-badge {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 14px;
+    border-radius: 10px;
+    border: 1.5px solid var(--border);
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text);
+    background: white;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .country-badge:hover, .country-badge.active {
+    border-color: var(--blue);
+    background: var(--blue-light);
+    color: var(--blue);
+  }
+
+  .scholarship-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .hidden { display: none !important; }
+
+  .tips-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 16px;
+    margin-top: 0;
+  }
+
+  .tip-card {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 20px;
+  }
+
+  .tip-num {
+    font-family: 'Space Mono', monospace;
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--border);
+    margin-bottom: 8px;
+  }
+
+  .tip-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 8px;
+  }
+
+  .tip-text {
+    font-size: 13px;
+    color: var(--text-muted);
+    line-height: 1.6;
+  }
+
+  .footer-note {
+    text-align: center;
+    font-size: 12px;
+    color: var(--text-muted);
+    padding: 32px 0 0;
+    border-top: 1px solid var(--border);
+    margin-top: 40px;
+    line-height: 1.7;
+  }
+
+  .passed-tag {
+    background: #f5f5f5;
+    color: #9e9e9e;
+    font-size: 11px;
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  @media (max-width: 600px) {
+    .hero { padding: 40px 20px 60px; }
+    .filter-bar { padding: 12px 20px; }
+    .content { padding: 24px 20px 60px; }
+    .card-header { padding: 18px 20px 14px; gap: 12px; }
+    .card-section { padding: 18px 20px; }
+    .card-timeline { padding: 18px 20px; }
+    .hero-stats { gap: 20px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-tag">Project Mika 2027</div>
+  <h1>Let's go Mika<br><span>Fight for an overseas scholarship!</span></h1>
+  <p class="hero-subtitle">This is a comprehensive breakdown of prestigious undergraduate scholarships in Asia — covering benefits, requirements, timelines, and insider tips for Indonesian high school graduates.</p>
+  <div class="hero-stats">
+    <div class="hero-stat">
+      <div class="num">6</div>
+      <div class="label">Scholarships Covered</div>
+    </div>
+    <div class="hero-stat">
+      <div class="num">5</div>
+      <div class="label">Countries</div>
+    </div>
+    <div class="hero-stat">
+      <div class="num">4</div>
+      <div class="label">Fully Funded</div>
+    </div>
+    <div class="hero-stat">
+      <div class="num">★ Top</div>
+      <div class="label">World Universities</div>
+    </div>
+  </div>
+</div>
+
+<div class="main">
+  <div class="filter-bar">
+    <span class="filter-label">Filter:</span>
+    <button class="filter-btn active" onclick="filterCards('all', this)">All</button>
+    <button class="filter-btn" onclick="filterCards('sg', this)">🇸🇬 Singapore</button>
+    <button class="filter-btn" onclick="filterCards('kr', this)">🇰🇷 South Korea</button>
+    <button class="filter-btn" onclick="filterCards('hk', this)">🇭🇰 Hong Kong</button>
+    <button class="filter-btn" onclick="filterCards('id', this)">🇮🇩 Indonesia Gov</button>
+    <button class="filter-btn" onclick="filterCards('jp', this)">🇯🇵 Japan</button>
+    <button class="filter-btn" onclick="filterCards('fully', this)">Fully Funded Only</button>
+  </div>
+
+  <div class="content">
+
+    <div class="overview-grid">
+      <div class="overview-card">
+        <div class="icon">🎓</div>
+        <div class="val">6</div>
+        <div class="desc">Scholarships researched from the Kalender Beasiswa 2026</div>
+      </div>
+      <div class="overview-card">
+        <div class="icon">💰</div>
+        <div class="val">4</div>
+        <div class="desc">Fully funded programs covering tuition + living expenses</div>
+      </div>
+      <div class="overview-card">
+        <div class="icon">📅</div>
+        <div class="val">Jan–Apr</div>
+        <div class="desc">Peak deadline window for most Asia scholarships</div>
+      </div>
+      <div class="overview-card">
+        <div class="icon">🌏</div>
+        <div class="val">Top 10</div>
+        <div class="desc">All programs are at QS Top 100 Asian universities</div>
+      </div>
+    </div>
+
+    <!-- TIMELINE OVERVIEW CHART -->
+    <div class="chart-section">
+      <div class="chart-title">Scholarship Deadline Overview — 2026</div>
+      <div class="deadline-vis">
+        <div class="dl-row">
+          <div class="dl-label">KAIST Int'l Scholarship</div>
+          <div class="dl-month">Jan 6</div>
+          <div class="dl-bar-wrap">
+            <div class="dl-bar" style="width: 5%; background: #1a56db;">Jan</div>
+          </div>
+        </div>
+        <div class="dl-row">
+          <div class="dl-label">NTU ASEAN Scholarship</div>
+          <div class="dl-month">Jan 20</div>
+          <div class="dl-bar-wrap">
+            <div class="dl-bar" style="width: 14%; background: #00897b;">Jan 20</div>
+          </div>
+        </div>
+        <div class="dl-row">
+          <div class="dl-label">NUS ASEAN Scholarship</div>
+          <div class="dl-month">Feb 23</div>
+          <div class="dl-bar-wrap">
+            <div class="dl-bar" style="width: 38%; background: #00695c;">Feb 23</div>
+          </div>
+        </div>
+        <div class="dl-row">
+          <div class="dl-label">Beasiswa Garuda S1</div>
+          <div class="dl-month">Apr 23</div>
+          <div class="dl-bar-wrap">
+            <div class="dl-bar" style="width: 62%; background: #c62828;">Apr 23</div>
+          </div>
+        </div>
+        <div class="dl-row">
+          <div class="dl-label">Samsung SKKU Scholarship</div>
+          <div class="dl-month">Jun 2</div>
+          <div class="dl-bar-wrap">
+            <div class="dl-bar" style="width: 80%; background: #f57c00;">Jun 2</div>
+          </div>
+        </div>
+        <div class="dl-row">
+          <div class="dl-label">HKUST Admission Scholarship</div>
+          <div class="dl-month">Jan 8</div>
+          <div class="dl-bar-wrap">
+            <div class="dl-bar" style="width: 8%; background: #7b1fa2;">Jan</div>
+          </div>
+        </div>
+        <div class="dl-row">
+          <div class="dl-label">MEXT Gakubu 2027</div>
+          <div class="dl-month">Apr 19</div>
+          <div class="dl-bar-wrap">
+            <div class="dl-bar" style="width: 58%; background: #d84315;">Apr 19</div>
+          </div>
+        </div>
+      </div>
+      <div style="margin-top: 16px; display: flex; gap: 8px; flex-wrap: wrap; align-items: center;">
+        <span style="font-size: 12px; color: #9e9e9e;">Timeline runs Jan → Jun 2026 &nbsp;·&nbsp; Deadlines from official sources; MEXT deadline is official (Apr 19, 2026). Always verify before applying.</span>
+      </div>
+    </div>
+
+    <!-- SCHOLARSHIP CARDS -->
+    <div class="section-header">
+      <h2>Scholarship Profiles</h2>
+      <div class="section-line"></div>
+    </div>
+
+    <div class="scholarship-grid" id="scholarship-grid">
+
+      <!-- 1. KAIST -->
+      <div class="scholarship-card" data-country="kr" data-type="fully">
+        <div class="card-header" onclick="toggleCard(this)">
+          <div class="country-flag" style="background: #fff0f0;">🇰🇷</div>
+          <div class="card-meta">
+            <div class="card-tags">
+              <span class="tag tag-country">South Korea</span>
+              <span class="tag tag-fully">Fully Funded</span>
+              <span class="tag tag-univ">University Scholarship</span>
+              <span class="passed-tag">Deadline Passed</span>
+            </div>
+            <div class="card-title">KAIST International Student Scholarship</div>
+            <div class="card-university">Korea Advanced Institute of Science and Technology (KAIST) — Daejeon</div>
+          </div>
+          <div class="card-right">
+            <div class="deadline-badge">Jan 6, 2026</div>
+            <div class="expand-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="card-sections">
+            <div class="card-section">
+              <div class="card-section-title">Benefits & Coverage</div>
+              <div class="benefit-item"><div class="benefit-icon"></div><span><strong>Full tuition waiver</strong> for all 8 semesters (4 years)</span></div>
+              <div class="benefit-item"><div class="benefit-icon"></div><span>Monthly living allowance of <strong>KRW 350,000</strong> (~USD 260)</span></div>
+              <div class="benefit-item"><div class="benefit-icon"></div><span>Health insurance covered by department/advisor</span></div>
+              <div class="benefit-item"><div class="benefit-icon"></div><span>All programs taught in English — no Korean required for admission</span></div>
+              <div class="benefit-item"><div class="benefit-icon"></div><span>Access to world-class STEM labs & research facilities</span></div>
+            </div>
+            <div class="card-section">
+              <div class="card-section-title">Eligibility for Indonesian Applicants</div>
+              <div class="req-item"><div class="req-dot"></div><span>International student (non-Korean citizenship)</span></div>
+              <div class="req-item"><div class="req-dot"></div><span>Must graduate or be on track to graduate from high school by August 2026</span></div>
+              <div class="req-item"><div class="req-dot"></div><span>Strong academic record in STEM (Math, Science). No minimum GPA stated but highly competitive</span></div>
+              <div class="req-item"><div class="req-dot"></div><span>English proficiency: TOEFL/IELTS recommended but <strong>not mandatory</strong> — MOI letter from school accepted</span></div>
+              <div class="req-item"><div class="req-dot"></div><span>1 recommendation letter from teacher/principal</span></div>
+              <div class="req-item"><div class="req-dot"></div><span>HS transcript, standardized test (SAT/ACT) — optional but strengthens app</span></div>
+              <div class="req-item"><div class="req-dot"></div><span>Application fee: USD 80 / KRW 80,000</span></div>
+            </div>
+          </div>
+          <div class="card-timeline">
+            <div class="timeline-title">Application & Selection Timeline</div>
+            <div class="timeline-steps">
+              <div class="timeline-step">
+                <div class="timeline-dot dot-passed">✓</div>
+                <div class="timeline-date">Oct 2025</div>
+                <div class="timeline-event">Early Admission Opens</div>
+              </div>
+              <div class="timeline-step">
+                <div class="timeline-dot dot-passed">✓</div>
+                <div class="timeline-date">Jan 6, 2026</div>
+                <div class="timeline-event">Regular Admission Deadline</div>
+              </div>
+              <div class="timeline-step">
+                <div class="timeline-dot dot-3">3</div>
+                <div class="timeline-date">Mar 2026</div>
+                <div class="timeline-event">Admission Results Announced</div>
+              </div>
+              <div class="timeline-step">
+                <div class="timeline-dot dot-4">4</div>
+                <div class="timeline-date">Aug–Sep 2026</div>
+                <div class="timeline-event">Semester Begins (Fall)</div>
+              </div>
+            </div>
+          </div>
+          <div class="note-box">
+            <span class="note-icon">⚡</span>
+            <span>No separate scholarship application needed — all admitted international students are automatically awarded the KAIST Scholarship. Select "KAIST Scholarship" in the Financial Resources section of your application form. Maintain a GPA of 2.7/4.3 to keep the scholarship after Year 1.</span>
+          </div>
+          <div style="height: 16px;"></div>
+        </div>
+      </div>
+
+      <!-- 2. NTU ASEAN -->
+      <div class="scholarship-card" data-country="sg" data-type="fully">
+        <div class="card-header" onclick="toggleCard(this)">
+          <div class="country-flag" style="background: #e8f8f5;">🇸🇬</div>
+          <div class="card-meta">
+            <div class="card-tags">
+              <span class="tag tag-country">Singapore</span>
+              <span class="tag tag-fully">Fully Funded</span>
+              <span class="tag tag-univ">University Scholarship</span>
+              <span class="passed-tag">Deadline Passed</span>
+            </div>
+            <div class="card-title">ASEAN Undergraduate Scholarship — NTU</div>
+            <div class="card-university">Nanyang Technological University (NTU) — Singapore</div>
+          </div>
+          <div class="card-right">
+            <div class="deadline-badge">Jan 20, 2026</div>
+            <div class="expand-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="card-sections">
+            <div class="card-section">
+              <div class="card-section-title">Benefits & Coverage</div>
+              <div class="benefit-item"><div class="benefit-icon"></div><span>Full coverage of subsidized tuition fees (after MOE Tuition Grant)</span></div>
+              <div class="benefit-item"><div class="benefit-icon"></div><span>Living allowance: <strong>SGD 5,800/year</strong> (~USD 4,300)</span></div>
+              <div class="benefit-item"><div class="benefit-icon"></div><span>Accommodation allowance: <strong>SGD 3,000/year</strong></span></div>
+              <div class="benefit-item"><div class="benefit-icon"></div><span>One-time computer allowance: <strong>SGD 1,750</strong></span></div>
+              <div class="benefit-item"><div class="benefit-icon"></div><span>Covers normal program duration (3–5 years)</span></div>
+              <div class="benefit-item"><div class="benefit-icon"></div><span>No bond attached to scholarship (3-yr work bond under MOE Tuition Grant only)</span></div>
+            </div>
+            <div class="card-section">
+              <div class="card-section-title">Eligibility for Indonesian Applicants</div>
+              <div class="req-item"><div class="req-dot"></div><span>Indonesian citizen (ASEAN member, non-Singaporean)</span></div>
+              <div class="req-item"><div class="req-dot"></div><span>Outstanding Year 12 equivalent results (Indonesian rapor/national exam acceptable)</span></div>
+              <div class="req-item"><div class="req-dot"></div><span>Excellent co-curricular records (sports, arts, leadership, community)</span></div>
+              <div class="req-item"><div class="req-dot"></div><span>Strong leadership qualities and potential</span></div>
+              <div class="req-item"><div class="req-dot"></div><span>Apply for NTU undergraduate admission first via the online portal</span></div>
+              <div class="req-item"><div class="req-dot"></div><span>Personal essay (max 250 words) + teacher referee appraisal online</span></div>
+              <div class="req-item"><div class="req-dot"></div><span>Maintain CGPA ≥ 3.5/5.0 to retain scholarship each semester</span></div>
+            </div>
+          </div>
+          <div class="card-timeline">
+            <div class="timeline-title">Application & Selection Timeline</div>
+            <div class="timeline-steps">
+              <div class="timeline-step">
+                <div class="timeline-dot dot-passed">✓</div>
+                <div class="timeline-date">Jan 20, 2026</div>
+                <div class="timeline-event">Application Deadline (Year 12 quals)</div>
+              </div>
+              <div class="timeline-step">
+                <div class="timeline-dot dot-2">2</div>
+                <div class="timeline-date">Mar – May 2026</div>
+                <div class="timeline-event">Scholarship Interviews (shortlisted)</div>
+              </div>
+              <div class="timeline-step">
+                <div class="timeline-dot dot-3">3</div>
+                <div class="timeline-date">Mid-May 2026</div>
+                <div class="timeline-event">Interview Shortlist via Email</div>
+              </div>
+              <div class="timeline-step">
+                <div class="timeline-dot dot-4">4</div>
+                <div class="timeline-date">Jul 2026</div>
+                <div class="timeline-event">Scholarship Agreement Sent</div>
+              </div>
+            </div>
+          </div>
+          <div class="note-box">
+            <span class="note-icon">⚡</span>
+            <span>Scholarship application is embedded in the NTU undergraduate application — click "Apply for Scholarship" at the end of your online admission form. You will need a 250-word personal essay on one compulsory topic. MOE Tuition Grant binds you to work 3 years at a Singapore-registered company after graduation.</span>
+          </div>
+          <div style="height: 16px;"></div>
+        </div>
+      </div>
+
+      <!-- 3. HKUST -->
+      <div class="scholarship-card" data-country="hk" data-type="partial">
+        <div class="card-header" onclick="toggleCard(this)">
+          <div class="country-flag" style="background: #f5e6ff;">🇭🇰</div>
+          <div class="card-meta">
+            <div class="card-tags">
+              <span class="tag tag-country">Hong Kong</span>
+              <span class="tag tag-partial">Merit-Based</span>
+              <span class="tag tag-univ">University Scholarship</span>
+              <span class="passed-tag">Deadline Passed</span>
+            </div>
+            <div class="card-title">HKUST University Admission Scholarship</div>
+            <div class="card-university">Hong Kong University of Science and Technology (HKUST) — Clear Water Bay</div>
+          </div>
+          <div class="card-right">
+            <div class="deadline-badge">Jan 8, 2026</div>
+            <div class="expand-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="card-sections">
+            <div class="card-section">
+              <div class="card-section-title">Benefits & Coverage</div>
+              <div class="benefit-item"><div class="benefit-icon"></div><span>Awards range from <strong>partial tuition waiver</strong> to <strong>full tuition + HKD 60,000/year</strong> living allowance</span></div>
+              <div class="benefit-item"><div class="benefit-icon"></div><span>Renewable for the full normal study duration (3–5 years)</span></div>
+              <div class="benefit-item"><div class="benefit-icon"></div><span>Top-up scholarships available from School of Engineering for outstanding STEM applicants</span></div>
+              <div class="benefit-item"><div class="benefit-icon"></div><span>Beyond Academic Admissions Scholarship (BAAS) for non-academic excellence (innovation, e-sports, sustainability)</span></div>
+              <div class="benefit-item"><div class="benefit-icon"></div><span>University-provided accommodation in first year guaranteed for non-local students</span></div>
+            </div>
+            <div class="card-section">
+              <div class="card-section-title">Eligibility for Indonesian Applicants</div>
+              <div class="req-item"><div class="req-dot"></div><span>International (non-local) student applying to HKUST undergraduate programs</span></div>
+              <div class="req-item"><div class="req-dot"></div><span>Indonesian Year 12 qualification or equivalent (IB, A-level, AP, national curriculum) accepted</span></div>
+              <div class="req-item"><div class="req-dot"></div><span>Outstanding academic performance — no separate scholarship application required</span></div>
+              <div class="req-item"><div class="req-dot"></div><span>English proficiency: TOEFL iBT ≥ 80 or IELTS ≥ 6.5 (or exemption)</span></div>
+              <div class="req-item"><div class="req-dot"></div><span>Consideration is holistic — academics + extra-curricular achievements evaluated</span></div>
+              <div class="req-item"><div class="req-dot"></div><span>Late Round deadline available until <strong>June 30, 2026</strong> for School of Engineering</span></div>
+            </div>
+          </div>
+          <div class="card-timeline">
+            <div class="timeline-title">Application & Selection Timeline</div>
+            <div class="timeline-steps">
+              <div class="timeline-step">
+                <div class="timeline-dot dot-passed">✓</div>
+                <div class="timeline-date">Jan 8, 2026</div>
+                <div class="timeline-event">Main Round Deadline</div>
+              </div>
+              <div class="timeline-step">
+                <div class="timeline-dot dot-2">2</div>
+                <div class="timeline-date">Mar 31, 2026</div>
+                <div class="timeline-event">Late SAAS Applications Considered</div>
+              </div>
+              <div class="timeline-step">
+                <div class="timeline-dot dot-3">3</div>
+                <div class="timeline-date">Apr–May 2026</div>
+                <div class="timeline-event">Admission + Scholarship Offers</div>
+              </div>
+              <div class="timeline-step">
+                <div class="timeline-dot dot-4">4</div>
+                <div class="timeline-date">Sep 2026</div>
+                <div class="timeline-event">Fall Semester Begins</div>
+              </div>
+            </div>
+          </div>
+          <div class="note-box">
+            <span class="note-icon">⚡</span>
+            <span>No separate scholarship application — HKUST awards scholarships automatically based on your admission application. Top STEM applicants may also receive School of Engineering top-up scholarships. QS World Ranking 2026: #44 globally, #6 in Asia. The Late Round application is still open until June 30, 2026.</span>
+          </div>
+          <div style="height: 16px;"></div>
+        </div>
+      </div>
+
+      <!-- 4. NUS ASEAN -->
+      <div class="scholarship-card" data-country="sg" data-type="fully">
+        <div class="card-header" onclick="toggleCard(this)">
+          <div class="country-flag" style="background: #e8f8f5;">🇸🇬</div>
+          <div class="card-meta">
+            <div class="card-tags">
+              <span class="tag tag-country">Singapore</span>
+              <span class="tag tag-fully">Fully Funded</span>
+              <span class="tag tag-univ">University Scholarship</span>
+              <span class="passed-tag">Deadline Passed</span>
+            </div>
+            <div class="card-title">ASEAN Undergraduate Scholarship — NUS</div>
+            <div class="card-university">National University of Singapore (NUS) — Singapore</div>
+          </div>
+          <div class="card-right">
+            <div class="deadline-badge">Feb 23, 2026</div>
+            <div class="expand-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="card-sections">
+            <div class="card-section">
+              <div class="card-section-title">Benefits & Coverage</div>
+              <div class="benefit-item"><div class="benefit-icon"></div><span>100% coverage of subsidized undergraduate tuition fees (MOE Tuition Grant applied)</span></div>
+              <div class="benefit-item"><div class="benefit-icon"></div><span>Covers all Double Degree and Joint Degree Programmes</span></div>
+              <div class="benefit-item"><div class="benefit-icon"></div><span>Renewable each semester upon maintaining GPA ≥ 3.50</span></div>
+              <div class="benefit-item"><div class="benefit-icon"></div><span>Covers normal program duration across all NUS faculties (excl. specific programs)</span></div>
+              <div class="benefit-item"><div class="benefit-icon"></div><span>No scholarship bond (3-yr MOE Tuition Grant work obligation applies)</span></div>
+            </div>
+            <div class="card-section">
+              <div class="card-section-title">Eligibility for Indonesian Applicants</div>
+              <div class="req-item"><div class="req-dot"></div><span>Indonesian citizen applying to a full-time NUS undergraduate program</span></div>
+              <div class="req-item"><div class="req-dot"></div><span>Outstanding high school results (Indonesian Ujian Nasional or equivalent accepted)</span></div>
+              <div class="req-item"><div class="req-dot"></div><span>Strong leadership qualities and excellent co-curricular record</span></div>
+              <div class="req-item"><div class="req-dot"></div><span>No separate scholarship application — automatically considered via NUS admission form</span></div>
+              <div class="req-item"><div class="req-dot"></div><span>Shortlisted candidates must submit personal statement + CCA/achievements portfolio</span></div>
+              <div class="req-item"><div class="req-dot"></div><span>Maintain GPA ≥ 3.50/5.00 each semester to renew</span></div>
+            </div>
+          </div>
+          <div class="card-timeline">
+            <div class="timeline-title">Application & Selection Timeline</div>
+            <div class="timeline-steps">
+              <div class="timeline-step">
+                <div class="timeline-dot dot-1">1</div>
+                <div class="timeline-date">Jan 5 – Feb 23</div>
+                <div class="timeline-event">NUS Application Window (Indonesian quals)</div>
+              </div>
+              <div class="timeline-step">
+                <div class="timeline-dot dot-2">2</div>
+                <div class="timeline-date">Apr – Jun 2026</div>
+                <div class="timeline-event">Selection Test & Interview (shortlisted)</div>
+              </div>
+              <div class="timeline-step">
+                <div class="timeline-dot dot-3">3</div>
+                <div class="timeline-date">Jun 2026</div>
+                <div class="timeline-event">Scholarship Award Announced</div>
+              </div>
+              <div class="timeline-step">
+                <div class="timeline-dot dot-4">4</div>
+                <div class="timeline-date">Jul 2026</div>
+                <div class="timeline-event">Semester Begins</div>
+              </div>
+            </div>
+          </div>
+          <div class="note-box">
+            <span class="note-icon">⚡</span>
+            <span>NUS is ranked #8 globally (QS 2026). The deadline Feb 23 was specifically for Indonesian students using the national exam (Ujian Nasional). Shortlisted candidates are invited to interviews; only interview applicants need to submit extra documents. MOE Tuition Grant requires working at a Singapore-registered company for 3 years post-graduation.</span>
+          </div>
+          <div style="height: 16px;"></div>
+        </div>
+      </div>
+
+      <!-- 5. Beasiswa Garuda -->
+      <div class="scholarship-card" data-country="id" data-type="fully">
+        <div class="card-header" onclick="toggleCard(this)">
+          <div class="country-flag" style="background: #fff8e1;">🇮🇩</div>
+          <div class="card-meta">
+            <div class="card-tags">
+              <span class="tag tag-country">Indonesia (Gov't)</span>
+              <span class="tag tag-fully">Fully Funded</span>
+              <span class="tag tag-govt">Government</span>
+              <span class="tag tag-deadline">Active / Open</span>
+            </div>
+            <div class="card-title">Beasiswa Garuda — S1 Luar Negeri</div>
+            <div class="card-university">Kemdiktisaintek + LPDP — for top 100 QS universities worldwide (incl. Asia)</div>
+          </div>
+          <div class="card-right">
+            <div class="deadline-badge">Apr 23, 2026</div>
+            <div class="expand-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="card-sections">
+            <div class="card-section">
+              <div class="card-section-title">Benefits & Coverage</div>
+              <div class="benefit-item"><div class="benefit-icon"></div><span>Full tuition fee (biaya pendidikan penuh) for the entire degree</span></div>
+              <div class="benefit-item"><div class="benefit-icon"></div><span>Monthly living allowance (biaya hidup) calibrated to destination country</span></div>
+              <div class="benefit-item"><div class="benefit-icon"></div><span>Round-trip economy airfare (keberangkatan & kepulangan)</span></div>
+              <div class="benefit-item"><div class="benefit-icon"></div><span>Student visa fee reimbursement</span></div>
+              <div class="benefit-item"><div class="benefit-icon"></div><span>Health insurance (asuransi kesehatan)</span></div>
+              <div class="benefit-item"><div class="benefit-icon"></div><span>Settlement allowance upon arrival (dana kedatangan)</span></div>
+              <div class="benefit-item"><div class="benefit-icon"></div><span>Emergency fund (dana keadaan darurat)</span></div>
+            </div>
+            <div class="card-section">
+              <div class="card-section-title">Eligibility for Indonesian Applicants</div>
+              <div class="req-item"><div class="req-dot"></div><span>Indonesian citizen (WNI) currently in Grade 12 (Kelas 12 SMA/SMK/MA)</span></div>
+              <div class="req-item"><div class="req-dot"></div><span>Rapor average Grade 1–5: minimum <strong>85/100</strong></span></div>
+              <div class="req-item"><div class="req-dot"></div><span>National or international academic achievement/award</span></div>
+              <div class="req-item"><div class="req-dot"></div><span>Letter of Acceptance (LoA) from a QS Top 100 Subject Ranking university</span></div>
+              <div class="req-item"><div class="req-dot"></div><span>IELTS ≥ 6.5 (overall) with no band below 6.0, or TOEFL equivalent</span></div>
+              <div class="req-item"><div class="req-dot"></div><span>Health certificate & narcotics-free certificate</span></div>
+              <div class="req-item"><div class="req-dot"></div><span>Must study in priority fields: STEM, Innovation, or Social Sciences aligned with national development</span></div>
+            </div>
+          </div>
+          <div class="card-timeline">
+            <div class="timeline-title">Application & Selection Timeline — 2026</div>
+            <div class="timeline-steps">
+              <div class="timeline-step">
+                <div class="timeline-dot dot-1">1</div>
+                <div class="timeline-date">Jan 22, 2026</div>
+                <div class="timeline-event">Socialization / Info Session Opens</div>
+              </div>
+              <div class="timeline-step">
+                <div class="timeline-dot dot-2">2</div>
+                <div class="timeline-date">Apr 2026</div>
+                <div class="timeline-event">Gelombang I: Registration + LoA Upload</div>
+              </div>
+              <div class="timeline-step">
+                <div class="timeline-dot dot-3">3</div>
+                <div class="timeline-date">Apr – May 2026</div>
+                <div class="timeline-event">Document Verification + Interview</div>
+              </div>
+              <div class="timeline-step">
+                <div class="timeline-dot dot-4">4</div>
+                <div class="timeline-date">Jun 2026</div>
+                <div class="timeline-event">Gelombang II: Registration Deadline</div>
+              </div>
+            </div>
+          </div>
+          <div class="note-box">
+            <span class="note-icon">🇮🇩</span>
+            <span>This is Indonesia's flagship government undergraduate scholarship — specifically designed for Grade 12 SMA students. You MUST have a Letter of Acceptance (LoA) from your target university before applying. Two rounds: Gelombang I (deadline ~April 23) and Gelombang II (~June). NTU, NUS, KAIST, and HKUST are all eligible target universities for this scholarship.</span>
+          </div>
+          <div style="height: 16px;"></div>
+        </div>
+      </div>
+
+      <!-- 6. Samsung SKKU -->
+      <div class="scholarship-card" data-country="kr" data-type="fully">
+        <div class="card-header" onclick="toggleCard(this)">
+          <div class="country-flag" style="background: #fff0f0;">🇰🇷</div>
+          <div class="card-meta">
+            <div class="card-tags">
+              <span class="tag tag-country">South Korea</span>
+              <span class="tag tag-fully">Fully Funded</span>
+              <span class="tag tag-univ">Corporate Scholarship</span>
+              <span class="tag tag-deadline">Upcoming</span>
+            </div>
+            <div class="card-title">Samsung Global Sungkyun Scholarship</div>
+            <div class="card-university">Sungkyunkwan University (SKKU) — Seoul & Suwon (Samsung-affiliated)</div>
+          </div>
+          <div class="card-right">
+            <div class="deadline-badge">Jun 2, 2026</div>
+            <div class="expand-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="card-sections">
+            <div class="card-section">
+              <div class="card-section-title">Benefits & Coverage</div>
+              <div class="benefit-item"><div class="benefit-icon"></div><span>Full tuition fees + entrance fees covered for 4 years</span></div>
+              <div class="benefit-item"><div class="benefit-icon"></div><span>Monthly living stipend: <strong>KRW 570,000/month</strong> (~USD 430)</span></div>
+              <div class="benefit-item"><div class="benefit-icon"></div><span>Priority dormitory assignment (university housing)</span></div>
+              <div class="benefit-item"><div class="benefit-icon"></div><span>Mentoring support through Samsung's global alumni network</span></div>
+              <div class="benefit-item"><div class="benefit-icon"></div><span>Fields: Global Business Administration, Global Economics, Global Biomedical Engineering, Electronic & Electrical Engineering</span></div>
+            </div>
+            <div class="card-section">
+              <div class="card-section-title">Eligibility for Indonesian Applicants</div>
+              <div class="req-item"><div class="req-dot"></div><span>International student (foreign national) applying to SKKU undergraduate programs</span></div>
+              <div class="req-item"><div class="req-dot"></div><span>Apply only to English Track (English-medium programs): Global Business Admin, Global Economics, Global Biomedical Engineering</span></div>
+              <div class="req-item"><div class="req-dot"></div><span>Strong academic record — excellent high school transcripts</span></div>
+              <div class="req-item"><div class="req-dot"></div><span>English proficiency: IELTS or TOEFL (TOPIK/Korean not required for English track)</span></div>
+              <div class="req-item"><div class="req-dot"></div><span>No separate scholarship application — automatically considered upon SKKU admission</span></div>
+              <div class="req-item"><div class="req-dot"></div><span>Application fee: KRW 150,000 (~USD 113)</span></div>
+            </div>
+          </div>
+          <div class="card-timeline">
+            <div class="timeline-title">Application & Selection Timeline</div>
+            <div class="timeline-steps">
+              <div class="timeline-step">
+                <div class="timeline-dot dot-1">1</div>
+                <div class="timeline-date">Mar 2026</div>
+                <div class="timeline-event">Spring Application Round Opens</div>
+              </div>
+              <div class="timeline-step">
+                <div class="timeline-dot dot-2">2</div>
+                <div class="timeline-date">May 2026</div>
+                <div class="timeline-event">2nd Application Round Opens</div>
+              </div>
+              <div class="timeline-step">
+                <div class="timeline-dot dot-3">3</div>
+                <div class="timeline-date">Jun 2, 2026</div>
+                <div class="timeline-event">Estimated Deadline (2025 basis)</div>
+              </div>
+              <div class="timeline-step">
+                <div class="timeline-dot dot-4">4</div>
+                <div class="timeline-date">Sep 2026</div>
+                <div class="timeline-event">Fall Semester Begins</div>
+              </div>
+            </div>
+          </div>
+          <div class="note-box">
+            <span class="note-icon">⚡</span>
+            <span>Samsung Electronics funds this scholarship, giving awardees access to Samsung's professional network — a major career advantage in tech. SKKU is ranked #6 in Korea and #145 globally (QS 2024). Over 40% of courses are taught in English. The Samsung Scholarship is one of the most competitive university scholarships in South Korea.</span>
+          </div>
+          <div style="height: 16px;"></div>
+        </div>
+      </div>
+
+      <!-- 7. MEXT Gakubu -->
+      <div class="scholarship-card" data-country="jp" data-type="fully">
+        <div class="card-header" onclick="toggleCard(this)">
+          <div class="country-flag" style="background: #fff5f5;">🇯🇵</div>
+          <div class="card-meta">
+            <div class="card-tags">
+              <span class="tag tag-country">Japan</span>
+              <span class="tag tag-fully">Fully Funded</span>
+              <span class="tag tag-govt">Government (MEXT)</span>
+              <span class="tag tag-deadline">Active — Closes Apr 19</span>
+            </div>
+            <div class="card-title">Beasiswa MEXT — Program Undergraduate (Gakubu) 2027</div>
+            <div class="card-university">Monbukagakusho (MEXT) / Japanese Government — State Universities across Japan</div>
+          </div>
+          <div class="card-right">
+            <div class="deadline-badge">Apr 19, 2026</div>
+            <div class="expand-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="card-sections">
+            <div class="card-section">
+              <div class="card-section-title">Benefits & Coverage</div>
+              <div class="benefit-item"><div class="benefit-icon"></div><span>Full tuition fees covered — including 1-year Japanese language preparatory school</span></div>
+              <div class="benefit-item"><div class="benefit-icon"></div><span>Monthly living allowance: <strong>¥117,000/month</strong> (~USD 790) — subject to annual budget review</span></div>
+              <div class="benefit-item"><div class="benefit-icon"></div><span>Round-trip economy airfare: Indonesia ↔ Japan</span></div>
+              <div class="benefit-item"><div class="benefit-icon"></div><span>Student visa fees waived</span></div>
+              <div class="benefit-item"><div class="benefit-icon"></div><span><strong>No bond / ikatan dinas</strong> — no obligation to return to Indonesia</span></div>
+              <div class="benefit-item"><div class="benefit-icon"></div><span>Scholarship period: <strong>April 2027 – March 2032</strong> (5 years: 1 prep + 4 undergraduate). Medicine/Dentistry: up to March 2034 (7 years)</span></div>
+            </div>
+            <div class="card-section">
+              <div class="card-section-title">Eligibility for Indonesian Applicants</div>
+              <div class="req-item"><div class="req-dot"></div><span>SMA/SMK/MA graduate or equivalent (Indonesian high school)</span></div>
+              <div class="req-item"><div class="req-dot"></div><span>Maximum age: <strong>24 years old</strong> on April 1, 2027 (born on or after April 2, 2002)</span></div>
+              <div class="req-item"><div class="req-dot"></div><span><strong>IPA track</strong>: Rapor scores ≥ 85 in each of: Matematika, Bahasa Inggris, and Fisika (IPA-A) or Fisika/Biologi (IPA-B/C) — for each semester from Kelas XI S1 to XII S1</span></div>
+              <div class="req-item"><div class="req-dot"></div><span><strong>IPS track</strong>: Rapor ≥ 85 in Matematika & Bahasa Inggris — OR rapor below 85 with JLPT ≥ N3, J-Test D-E (≥500pts), NAT-Test Lv.3, or EJU ≥ 240pts</span></div>
+              <div class="req-item"><div class="req-dot"></div><span>Bonus points available for: EJU, TKA, UTBK/SNBT, or SAT scores</span></div>
+              <div class="req-item"><div class="req-dot"></div><span>Choose 1–3 fields of study from IPA-A, IPA-B, IPA-C, IPS-A, or IPS-B categories</span></div>
+              <div class="req-item"><div class="req-dot"></div><span>Online registration at: <a href="https://daftar.beasiswamext.com/" target="_blank" style="color: var(--blue);">daftar.beasiswamext.com</a></span></div>
+            </div>
+          </div>
+
+          <div style="padding: 0 28px;">
+            <div style="margin: 4px 0 16px; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; color: var(--text-muted); display: flex; align-items: center; gap: 8px; padding-top: 20px; border-top: 1px solid var(--border);">Fields of Study <span style="flex:1; height:1px; background: var(--border); display:inline-block;"></span></div>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px; margin-bottom: 20px;">
+              <div style="background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 12px 14px;">
+                <div style="font-size: 12px; font-weight: 600; color: #1a56db; margin-bottom: 6px;">IPA-A — Science &amp; Engineering</div>
+                <div style="font-size: 12px; color: var(--text-muted); line-height: 1.5;">Mathematics, Physics, Chemistry, Electronics, Electrical &amp; Information Engineering, Mechanical, Civil, Architecture, Chemical, Metallurgy, Biotechnology, etc.</div>
+              </div>
+              <div style="background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 12px 14px;">
+                <div style="font-size: 12px; font-weight: 600; color: #00695c; margin-bottom: 6px;">IPA-B — Agriculture &amp; Health</div>
+                <div style="font-size: 12px; color: var(--text-muted); line-height: 1.5;">Agriculture, Agri-Chemistry, Animal Science, Veterinary, Forestry, Food Science, Fisheries, Pharmacy, Nursing, Biology, etc.</div>
+              </div>
+              <div style="background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 12px 14px;">
+                <div style="font-size: 12px; font-weight: 600; color: #c62828; margin-bottom: 6px;">IPA-C — Medicine &amp; Dentistry</div>
+                <div style="font-size: 12px; color: var(--text-muted); line-height: 1.5;">Medicine and Dentistry only. Highly competitive — 7-year scholarship. Check FAQ before choosing.</div>
+              </div>
+              <div style="background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 12px 14px;">
+                <div style="font-size: 12px; font-weight: 600; color: #6a1b9a; margin-bottom: 6px;">IPS-A &amp; IPS-B — Social Sciences</div>
+                <div style="font-size: 12px; color: var(--text-muted); line-height: 1.5;">Law, Politics, Pedagogy, Sociology, Literature, History, Japanese Language (IPS-A) · Economics, Business Admin, Accounting (IPS-B)</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card-timeline">
+            <div class="timeline-title">Official Selection Timeline — 2026/2027</div>
+            <div class="timeline-steps">
+              <div class="timeline-step">
+                <div class="timeline-dot dot-1">1</div>
+                <div class="timeline-date">Apr 1–19, 2026</div>
+                <div class="timeline-event">Registration &amp; Document Submission</div>
+              </div>
+              <div class="timeline-step">
+                <div class="timeline-dot dot-2">2</div>
+                <div class="timeline-date">Jun 17, 2026</div>
+                <div class="timeline-event">Document Screening Result Announced</div>
+              </div>
+              <div class="timeline-step">
+                <div class="timeline-dot dot-3">3</div>
+                <div class="timeline-date">Jun–Aug 2026</div>
+                <div class="timeline-event">Written Exam (Jakarta, Surabaya, Medan, Denpasar, Makassar) + Interview</div>
+              </div>
+              <div class="timeline-step">
+                <div class="timeline-dot dot-4">4</div>
+                <div class="timeline-date">Feb 2027</div>
+                <div class="timeline-event">Final MEXT Announcement</div>
+              </div>
+              <div class="timeline-step">
+                <div class="timeline-dot dot-4">5</div>
+                <div class="timeline-date">Apr 2027</div>
+                <div class="timeline-event">Depart to Japan — Studies Begin</div>
+              </div>
+            </div>
+          </div>
+
+          <div style="padding: 0 28px 0;">
+            <div style="margin: 20px 0 14px; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; color: var(--text-muted); display: flex; align-items: center; gap: 8px; border-top: 1px solid var(--border); padding-top: 20px;">Required Documents <span style="flex:1; height:1px; background: var(--border); display:inline-block;"></span></div>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 6px 24px; font-size: 13px; margin-bottom: 20px;">
+              <div class="req-item"><div class="req-dot"></div><span>Print-out email konfirmasi registrasi online (berisi Nomor Ujian)</span></div>
+              <div class="req-item"><div class="req-dot"></div><span>Application Form 2027 (unduh dari website Kedubes)</span></div>
+              <div class="req-item"><div class="req-dot"></div><span>Transkrip nilai Kelas X S1 s.d. XII S2 (legalisasi sekolah)</span></div>
+              <div class="req-item"><div class="req-dot"></div><span>Ijazah / Surat Keterangan Lulus (legalisasi sekolah)</span></div>
+              <div class="req-item"><div class="req-dot"></div><span>Surat Rekomendasi dari guru/kepala sekolah (in English or Japanese)</span></div>
+              <div class="req-item"><div class="req-dot"></div><span>Surat Akreditasi Sekolah (fotokopi)</span></div>
+              <div class="req-item"><div class="req-dot"></div><span>Nilai TKA/UTBK-SNBT/SAT/EJU — jika ada (fotokopi, wajib)</span></div>
+              <div class="req-item"><div class="req-dot"></div><span>Sertifikat bahasa (JLPT/IELTS/TOEFL/TOEIC) — jika ada, tidak wajib</span></div>
+              <div class="req-item"><div class="req-dot"></div><span>Formulir penghargaan kompetisi &amp; pengalaman Jepang — jika ada</span></div>
+              <div class="req-item"><div class="req-dot"></div><span>Pasfoto formal (3.5×4.5 cm atau 3×4 cm, 6 bulan terakhir)</span></div>
+            </div>
+            <p style="font-size: 12px; color: var(--text-muted); margin-bottom: 20px;">Kirim dokumen (dalam 1 amplop, kode "<strong>Gakubu 2027_[nomor ujian]</strong>") ke: <strong>Bagian Informasi dan Kebudayaan, Kedutaan Besar Jepang, Jl. M.H. Thamrin No. 24, Jakarta 10350</strong>. Diterima paling lambat 19 April 2026 pukul 23.59 WIB.</p>
+          </div>
+
+          <div class="note-box">
+            <span class="note-icon">🇯🇵</span>
+            <span>MEXT Gakubu adalah beasiswa pemerintah Jepang paling bergengsi untuk jenjang S1 — fully funded dengan stipend ¥117.000/bulan dan tanpa ikatan dinas. Seleksi berlangsung 3 tahap: dokumen → ujian tulis → wawancara → rekomendasi ke MEXT Tokyo. Ujian tulis mencakup B.Inggris, Matematika, dan Bahasa Jepang (IPA juga: Fisika/Kimia/Biologi). Pendaftaran online wajib di <a href="https://daftar.beasiswamext.com/" target="_blank" style="color: #92400e; font-weight: 600;">daftar.beasiswamext.com</a> sebelum mengirim dokumen fisik.</span>
+          </div>
+          <div style="height: 16px;"></div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- TIPS SECTION -->
+    <div class="section-header" style="margin-top: 56px;">
+      <h2>Strategic Tips for Indonesian High Schoolers</h2>
+      <div class="section-line"></div>
+    </div>
+
+    <div class="tips-grid">
+      <div class="tip-card">
+        <div class="tip-num">01</div>
+        <div class="tip-title">Start IELTS prep 6–12 months early</div>
+        <div class="tip-text">Beasiswa Garuda requires IELTS ≥ 6.5. NTU/NUS require strong English. Begin prep in Kelas 11 — IELTS scores are valid for 2 years and make every application stronger.</div>
+      </div>
+      <div class="tip-card">
+        <div class="tip-num">02</div>
+        <div class="tip-title">Apply to university AND scholarship simultaneously</div>
+        <div class="tip-text">Most scholarships here (KAIST, NTU, NUS, HKUST, SKKU) require no separate application — you're considered automatically when you apply for admission. Don't wait.</div>
+      </div>
+      <div class="tip-card">
+        <div class="tip-num">03</div>
+        <div class="tip-title">Secure a LoA before Beasiswa Garuda deadline</div>
+        <div class="tip-text">Beasiswa Garuda is the most accessible fully-funded option for Indonesian SMA students, but you MUST have a Letter of Acceptance. Apply to overseas universities by January–February to have the LoA ready for April.</div>
+      </div>
+      <div class="tip-card">
+        <div class="tip-num">04</div>
+        <div class="tip-title">Build your co-curricular portfolio strategically</div>
+        <div class="tip-text">NTU and NUS explicitly evaluate co-curricular records and leadership. National-level olympiad medals, student council leadership, or community projects significantly boost your profile.</div>
+      </div>
+      <div class="tip-card">
+        <div class="tip-num">05</div>
+        <div class="tip-title">Use Beasiswa Garuda as a safety net strategy</div>
+        <div class="tip-text">Apply directly to NTU/NUS/KAIST for their university scholarships first (Jan–Feb). If awarded a LoA, you can also independently apply for Beasiswa Garuda (April) to layer funding options.</div>
+      </div>
+      <div class="tip-card">
+        <div class="tip-num">06</div>
+        <div class="tip-title">Check QS rankings for eligible universities</div>
+        <div class="tip-text">Beasiswa Garuda requires universities to be in QS Top 100 (subject ranking). NUS, NTU, KAIST, HKUST, and SKKU all qualify. Cross-reference the official Kemdiktisaintek partner university list before applying.</div>
+      </div>
+    </div>
+
+    <div class="footer-note">
+      <p>Sources: Official university websites (NTU, NUS, HKUST, KAIST, SKKU), Kemdiktisaintek / LPDP official portal, Embassy of Japan in Indonesia (id.emb-japan.go.jp), Schoters Kalender Beasiswa 2026.</p>
+      <p style="margin-top: 6px;">MEXT deadline is official (Apr 19, 2026). Other deadlines marked with * are estimated from 2025 data. Always verify with the official scholarship portal before applying. Compiled: April 2026.</p>
+    </div>
+
+  </div>
+</div>
+
+<script>
+  function toggleCard(header) {
+    const card = header.closest('.scholarship-card');
+    const body = card.querySelector('.card-body');
+    const isOpen = body.classList.contains('open');
+    body.classList.toggle('open', !isOpen);
+    card.classList.toggle('expanded', !isOpen);
+  }
+
+  function filterCards(type, btn) {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    document.querySelectorAll('.scholarship-card').forEach(card => {
+      const country = card.dataset.country;
+      const funding = card.dataset.type;
+      let show = false;
+      if (type === 'all') show = true;
+      else if (type === 'sg') show = country === 'sg';
+      else if (type === 'kr') show = country === 'kr';
+      else if (type === 'hk') show = country === 'hk';
+      else if (type === 'id') show = country === 'id';
+      else if (type === 'jp') show = country === 'jp';
+      else if (type === 'fully') show = funding === 'fully';
+      card.classList.toggle('hidden', !show);
+    });
+  }
+</script>
+</body>
+</html>
